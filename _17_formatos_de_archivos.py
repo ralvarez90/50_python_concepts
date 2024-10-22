@@ -15,7 +15,6 @@ principales son load para leer información y dump/dumps para escribir datos en 
 import csv
 import json
 import sys
-from json import JSONDecoder
 
 
 def _01_cvs_read_file():
