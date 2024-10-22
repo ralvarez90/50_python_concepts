@@ -31,18 +31,27 @@ se debe cerrar llamando a close.
 Si no existe el archivo lo crea y si existe el archivo agrega al final
 el nuevo contenido.
 """
+import sys
 from typing import AnyStr
 
 
 def get_ignore_file_content() -> AnyStr:
-    with open('../../../../Downloads/Cursos/Books/50_python_concepts/.gitignore', 'r') as f:
-        return f.read()
+    file_name: str = '.gitignore'
+    try:
+        with open(file_name, 'r') as f:
+            return f.read()
+    except FileNotFoundError as e:
+        print(e, file=sys.stderr)
 
 
 def _01_reading_file():
-    with open('../../../../Downloads/Cursos/Books/50_python_concepts/.gitignore', mode='r') as f:
-        content: str = f.read()
-        print(content)
+    file_name: str = '.gitignore'
+    try:
+        with open(file_name, mode='r') as f:
+            content: str = f.read()
+            print(content)
+    except FileNotFoundError as e:
+        print(e, file=sys.stderr)
 
 
 def _02_writing_file():
